@@ -35,6 +35,7 @@ cd facility-booking-system
 ```
 
 **2. Create and activate a virtual environment**
+
 On Windows (PowerShell/CMD): 
 ```bash
 python -m venv venv
