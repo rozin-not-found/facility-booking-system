@@ -55,5 +55,20 @@ pip install -r requirements.txt
 ```bash
 python app.py
 ```
+---
+# Demo
+
+<img width="811" height="552" alt="Screenshot 2026-08-20 183931" src="https://github.com/user-attachments/assets/5dffcb18-423c-4977-9b84-e31f178fb2f5" />
+
+<img width="827" height="875" alt="image" src="https://github.com/user-attachments/assets/06cae7ad-def0-4fd2-902c-cef4317a2e90" />
+
+<img width="822" height="570" alt="image" src="https://github.com/user-attachments/assets/0173892a-5d56-489f-85ed-7fe347d91652" />
+
+<img width="814" height="780" alt="image" src="https://github.com/user-attachments/assets/92649bcc-d88e-4037-81e4-6851a804c2de" />
+
+<img width="810" height="480" alt="image" src="https://github.com/user-attachments/assets/9c205bc1-a948-422f-8a6d-0fb19a14e2f8" />
+
+
+
 
 
