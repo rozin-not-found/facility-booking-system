@@ -1,0 +1,111 @@
+:root {
+    /* Adjusted from provided #007BC to a valid 6-char hex representing the same primary blue shade */
+    --primary-blue: #007BCC; 
+    --secondary-yellow: #FFF200;
+    --bg-white: #FFFFFF;
+    --text-dark: #222222;
+    --error-red: #D32F2F;
+}
+
+body {
+    background-color: #F0F4F8;
+    color: var(--text-dark);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: var(--bg-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+header {
+    background-color: var(--primary-blue);
+    color: var(--bg-white);
+    padding: 25px 20px;
+    text-align: center;
+    border-bottom: 6px solid var(--secondary-yellow);
+}
+
+header h1 { margin: 0; font-size: 1.8rem; }
+header p { margin: 5px 0 0 0; font-size: 1rem; opacity: 0.9; }
+
+main { padding: 30px; }
+
+.step { display: none; }
+.step.active { display: block; animation: fadeIn 0.4s; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 { color: var(--primary-blue); margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+.subtitle { margin-bottom: 20px; font-weight: 500; color: #555; }
+
+.form-group { margin-bottom: 20px; }
+label { display: block; font-weight: 600; margin-bottom: 8px; }
+input, select {
+    width: 100%; padding: 12px; border: 2px solid #ccc; box-sizing: border-box;
+    border-radius: 6px; font-size: 16px; transition: border-color 0.2s;
+}
+input:focus, select:focus {
+    border-color: var(--primary-blue); outline: none;
+}
+
+.btn {
+    padding: 12px 24px; border: none; border-radius: 6px;
+    font-size: 16px; font-weight: bold; cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+}
+.btn:active { transform: scale(0.98); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-primary { background-color: var(--primary-blue); color: var(--bg-white); }
+.btn-primary:hover:not(:disabled) { background-color: #0069B0; }
+
+.btn-secondary { background-color: var(--secondary-yellow); color: var(--text-dark); }
+.btn-secondary:hover:not(:disabled) { background-color: #E6DA00; }
+
+.actions { display: flex; justify-content: space-between; margin-top: 30px; }
+
+.facilities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+
+.facility-card {
+    border: 2px solid #ddd; padding: 20px; border-radius: 8px;
+    cursor: pointer; transition: all 0.2s ease; outline: none;
+}
+.facility-card:hover:not(.disabled), .facility-card:focus:not(.disabled) { 
+    border-color: var(--primary-blue); 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
+}
+.facility-card.selected { border-color: var(--primary-blue); background-color: rgba(0, 123, 204, 0.05); }
+.facility-card.disabled { opacity: 0.5; cursor: not-allowed; background-color: #f9f9f9; }
+
+.facility-card h3 { color: var(--primary-blue); margin: 0 0 10px 0; font-size: 1.2rem; }
+.facility-card .qty { font-weight: bold; color: #555; }
+.price-row { margin-top: 15px; font-size: 1.1rem; }
+.original-price { text-decoration: line-through; color: #888; font-size: 0.9em; margin-right: 10px; }
+.discount-price { font-weight: bold; color: var(--primary-blue); font-size: 1.2em; }
+.discount-badge { display: inline-block; background: var(--secondary-yellow); color: var(--text-dark); font-size: 0.8rem; font-weight: bold; padding: 3px 8px; border-radius: 4px; margin-top: 10px; }
+
+.summary-card {
+    background: #fdfdfd; padding: 25px; border-radius: 8px;
+    border: 1px solid #eee; border-left: 6px solid var(--primary-blue);
+}
+.summary-card p { margin: 8px 0; font-size: 1.1rem; }
+.summary-card hr { border: none; border-top: 1px solid #ddd; margin: 15px 0; }
+.discount { color: #007BCC; font-weight: 600; }
+.total { font-size: 1.4rem; color: var(--primary-blue); font-weight: bold; margin-top: 15px !important; }
+
+.error-msg { color: var(--error-red); margin-top: 10px; font-weight: bold; font-size: 0.95rem; }
+
+.success-card { text-align: center; padding: 40px 20px; }
+.success-card h2 { color: #2E7D32; border: none; }

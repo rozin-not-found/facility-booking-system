@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High School Facility Rental</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header role="banner">
+            <h1>Facility Rental Booking</h1>
+            <p>Exclusive Weekend Rentals (8:00 AM - 12:00 PM)</p>
+        </header>
+        
+        <main id="booking-app" role="main">
+            <!-- Step 1: Date & Time -->
+            <section id="step-1" class="step active" aria-labelledby="step-1-title">
+                <h2 id="step-1-title">Step 1: Select Date & Time</h2>
+                <div class="form-group">
+                    <label for="booking-date">Date (Weekends Only):</label>
+                    <input type="date" id="booking-date" aria-required="true" required>
+                </div>
+                <div class="form-group">
+                    <label for="time-slot">Time Slot:</label>
+                    <select id="time-slot" aria-required="true" required>
+                        <option value="">Select a time...</option>
+                        <option value="08:00-09:00">8:00 AM - 9:00 AM</option>
+                        <option value="09:00-10:00">9:00 AM - 10:00 AM</option>
+                        <option value="10:00-11:00">10:00 AM - 11:00 AM</option>
+                        <option value="11:00-12:00">11:00 AM - 12:00 PM</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="checkAvailability()">Next Step</button>
+                <div id="step-1-error" class="error-msg" aria-live="polite"></div>
+            </section>
+
+            <!-- Step 2: Select Facility -->
+            <section id="step-2" class="step" aria-labelledby="step-2-title">
+                <h2 id="step-2-title">Step 2: Select Facility</h2>
+                <p class="subtitle">Enjoy our special 25% weekend discount on all facilities!</p>
+                <div id="facilities-list" class="facilities-grid" role="group" aria-label="Available Facilities">
+                    <!-- Populated via JS -->
+                </div>
+                <div class="actions">
+                    <button class="btn btn-secondary" onclick="goToStep(1)">Back</button>
+                    <button class="btn btn-primary" onclick="goToStep(3)" id="btn-step-2-next" disabled>Next Step</button>
+                </div>
+            </section>
+
+            <!-- Step 3: User Details -->
+            <section id="step-3" class="step" aria-labelledby="step-3-title">
+                <h2 id="step-3-title">Step 3: Your Details</h2>
+                <div class="form-group">
+                    <label for="user-name">Full Name:</label>
+                    <input type="text" id="user-name" aria-required="true" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-email">Email Address:</label>
+                    <input type="email" id="user-email" aria-required="true" required>
+                </div>
+                <div class="actions">
+                    <button class="btn btn-secondary" onclick="goToStep(2)">Back</button>
+                    <button class="btn btn-primary" onclick="prepareSummary()">Review Booking</button>
+                </div>
+            </section>
+
+            <!-- Step 4: Summary -->
+            <section id="step-4" class="step" aria-labelledby="step-4-title">
+                <h2 id="step-4-title">Step 4: Checkout Summary</h2>
+                <div class="summary-card" role="region" aria-label="Booking Summary">
+                    <p><strong>Name:</strong> <span id="sum-name"></span></p>
+                    <p><strong>Email:</strong> <span id="sum-email"></span></p>
+                    <hr>
+                    <p><strong>Date:</strong> <span id="sum-date"></span></p>
+                    <p><strong>Time:</strong> <span id="sum-time"></span></p>
+                    <p><strong>Facility:</strong> <span id="sum-facility"></span></p>
+                    <hr>
+                    <p><strong>Base Price:</strong> $<span id="sum-base"></span></p>
+                    <p class="discount"><strong>25% Discount Applied:</strong> -$<span id="sum-discount"></span></p>
+                    <p class="total"><strong>Total to Pay:</strong> $<span id="sum-total"></span></p>
+                </div>
+                <div class="actions">
+                    <button class="btn btn-secondary" onclick="goToStep(3)">Back</button>
+                    <button class="btn btn-primary" onclick="submitBooking()" id="btn-confirm">Confirm Booking</button>
+                </div>
+                <div id="booking-error" class="error-msg" aria-live="polite"></div>
+            </section>
+
+            <!-- Success -->
+            <section id="step-success" class="step" aria-labelledby="success-title">
+                <div class="success-card">
+                    <h2 id="success-title">Booking Confirmed!</h2>
+                    <p>Thank you for your reservation. An email confirmation has been sent to your address.</p>
+                    <button class="btn btn-primary" style="margin-top:20px;" onclick="location.reload()">Book Another Facility</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
